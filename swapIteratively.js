@@ -1,15 +1,19 @@
-function swapIteratively(root) {
+module.exports = function swapIteratively(root) {
   if (root === null) {
     return null;
   }
 
   let queue = [root];
+
   while (queue.length > 0) {
     let currNode = queue.shift();
+
     let left = currNode.left;
     let right = currNode.right;
+
     currNode.right = left;
     currNode.left = right;
+
     if (currNode.left) {
       queue.push(right);
     }
@@ -18,4 +22,4 @@ function swapIteratively(root) {
     }
   }
   return root;
-}
+};
